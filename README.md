@@ -1,6 +1,8 @@
 # Installed
 
 npm install react-router-dom
+npm install -g json-server
+-json-server --watch ./src/db/data.json --port 3001
 
 # Getting Started with Create React App
 
