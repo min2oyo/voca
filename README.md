@@ -4,6 +4,11 @@ npm install react-router-dom
 npm install -g json-server
 -json-server --watch ./src/db/data.json --port 3001
 
+# 필요한 추가 기능
+
+Day 삭제 기능
+Day 페이지에서 양쪽에 화살표 표시로 Day 이동
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
