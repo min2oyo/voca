@@ -1,69 +1,77 @@
+// 방법4
+import { useState } from "react";
+
 export default function Hello() {
-
-  function showName() {
-    console.log("Mike");
-  }
-
-  function showAge(age) {
-    console.log(age);
-  }
-
-  function showText1(e) {
-    console.log(e.target.value);
-  }
-
-  function showText3(txt) {
-    console.log(txt);
-  }
+  const [name, setName] = useState("Mike");
 
   return (
     <div>
-      <h1>Hello</h1>
-      <p>
-        <button onClick={showName}>Show name</button>
-      </p>
-      <p>
-        <button
-          onClick={() => {
-            console.log(30);
-          }}>
-          Show age 1
-        </button>
-      </p>
-      <p>
-        <button
-          onClick={() => {
-            showAge(10);
-          }}>
-          Show age 2
-        </button>
-      </p>
-      <p>
-        showText1:&nbsp;
-        <input
-          type='text'
-          onChange={showText1}
-        />
-      </p>
-      <p>
-        showText2:&nbsp;
-        <input
-          type='text'
-          onChange={e => {
-            console.log(e.target.value);
-          }}
-        />
-      </p>
-      <p>
-        showText3:&nbsp;
-        <input
-          type='text'
-          onChange={e => {
-            const txt = e.target.value;
-            showText3(txt);
-          }}
-        />
-      </p>
-    </div >
+      <h1 id="name">{name}</h1>
+      <button onClick={() => {
+        setName(name === "Mike" ? "Jane" : "Mike");
+      }
+      }>Change</button>
+    </div>
   )
 }
+
+
+
+// 방법3
+// import { useState } from "react";
+
+// export default function Hello() {
+//   const [name, setName] = useState("Mike");
+
+//   function changeName() {
+//     setName(name === "Mike" ? "Jane" : "Mike");
+//   }
+
+//   return (
+//     <div>
+//       <h1 id="name">{name}</h1>
+//       <button onClick={changeName}>Change</button>
+//     </div>
+//   )
+// }
+
+
+
+// 방법2
+// import { useState } from "react";
+
+// export default function Hello() {
+//   const [name, setName] = useState("Mike");
+
+//   function changeName() {
+//     const newName = name === "Mike" ? "Jane" : "Mike";
+//     setName(newName);
+//   }
+
+//   return (
+//     <div>
+//       <h1 id="name">{name}</h1>
+//       <button onClick={changeName}>Change</button>
+//     </div>
+//   )
+// }
+
+
+
+// 방법1
+// export default function Hello() {
+//   let name = "Mike";
+
+//   function changeName() {
+//     name = name === "Mike" ? "Jane" : "Mike";
+//     console.log(name);
+//     document.getElementById("name").innerText = name;
+//   }
+
+//   return (
+//     <div>
+//       <h1 id="name">{name}</h1>
+//       <button onClick={changeName}>Change</button>
+//     </div>
+//   )
+// }
