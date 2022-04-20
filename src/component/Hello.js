@@ -1,77 +1,64 @@
-// 방법4
+//나이에 구조 분해 할당 적용
 import { useState } from "react";
+import UserName from "./UserName";
 
-export default function Hello() {
+export default function Hello({ age }) {
   const [name, setName] = useState("Mike");
+  const msg = age > 19 ? "성인 입니다." : "미성년자 입니다.";
 
   return (
     <div>
-      <h1 id="name">{name}</h1>
-      <button onClick={() => {
-        setName(name === "Mike" ? "Jane" : "Mike");
-      }
-      }>Change</button>
+      <h2 id="name">
+        {name}({age}) : {msg}
+      </h2>
+      <UserName name={name} />
+      <button
+        onClick={() => {
+          setName(name === "Mike" ? "Jane" : "Mike");
+        }}
+      >
+        Change
+      </button>
     </div>
   )
 }
 
 
 
-// 방법3
+// 인수명 변경
 // import { useState } from "react";
 
-// export default function Hello() {
+// export default function Hello({ age }) {
 //   const [name, setName] = useState("Mike");
-
-//   function changeName() {
-//     setName(name === "Mike" ? "Jane" : "Mike");
-//   }
 
 //   return (
 //     <div>
-//       <h1 id="name">{name}</h1>
-//       <button onClick={changeName}>Change</button>
+//       <h1 id="name">{name}({age})</h1>
+//       <button onClick={() => {
+//         setName(name === "Mike" ? "Jane" : "Mike");
+//       }
+//       }>Change</button>
 //     </div>
 //   )
 // }
 
 
 
-// 방법2
+// 나이 적용 1
 // import { useState } from "react";
 
-// export default function Hello() {
+// export default function Hello(props) {
 //   const [name, setName] = useState("Mike");
-
-//   function changeName() {
-//     const newName = name === "Mike" ? "Jane" : "Mike";
-//     setName(newName);
-//   }
+//   const [age, setAge] = useState(props.age);
 
 //   return (
 //     <div>
-//       <h1 id="name">{name}</h1>
-//       <button onClick={changeName}>Change</button>
-//     </div>
-//   )
-// }
-
-
-
-// 방법1
-// export default function Hello() {
-//   let name = "Mike";
-
-//   function changeName() {
-//     name = name === "Mike" ? "Jane" : "Mike";
-//     console.log(name);
-//     document.getElementById("name").innerText = name;
-//   }
-
-//   return (
-//     <div>
-//       <h1 id="name">{name}</h1>
-//       <button onClick={changeName}>Change</button>
+//       <h1 id="name">{name}({age})</h1>
+//       <button onClick={() => {
+//         setName(name === "Mike" ? "Jane" : "Mike");
+//         setAge(age + 1);
+//       }
+//       }>Change</button>
 //     </div>
 //   )
 // }
