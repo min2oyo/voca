@@ -3,6 +3,7 @@
 npm install react-router-dom
 npm install -g json-server
 -json-server --watch ./src/db/data.json --port 3001
+npm install typescript @types/node @types/react @types/react-dom @types/jest @types/react-router-dom
 
 # 필요한 추가 기능
 

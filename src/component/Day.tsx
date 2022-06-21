@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
-import Word from "./Word";
+import Word, { IWord } from "./Word";
 
 export default function Day() {
 
   const { day } = useParams();
-  const words = useFetch(`http://localhost:3001/words?day=${day}`);
+  const words: IWord[] = useFetch(`http://localhost:3001/words?day=${day}`);
 
   return (
     <>
@@ -19,6 +19,6 @@ export default function Day() {
         </tbody>
       </table>
     </>
-  )
+  );
 
 }
